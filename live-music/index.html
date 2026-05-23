@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monamor — Live Latin Music for Your Event</title>
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Seattle acoustic Latin ensemble. Boleros, Son Cubano, Cha Cha Cha, influenced by Latin Jazz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* FONT RULE: Optima, Georgia, serif — all display. DM Sans — body only. Zero other fonts. */
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #EBE4E0;
+      --card:      #F0EAE7;
+      --brd:       #D4C8C2;
+      --head:      #3B2D30;
+      --body:      #5E4E4A;
+      --accent:    #8B5555;
+      --dim:       #A89994;
+      --dk-bg:     #3B2D30;
+      --dk-brd:    #5E4E51;
+      --dk-head:   #EBE4E0;
+      --dk-body:   #A89994;
+      --dk-accent: #C08E8E;
+      --f-d: 'Optima', Georgia, serif;
+      --f-b: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--f-b);
+      font-weight: 300;
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* PAGE SHELL */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* SHARED */
+    .lbl {
+      font-family: var(--f-d);
+      font-size: 0.6rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .ttl {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      color: var(--head);
+      margin-bottom: 14px;
+    }
+
+    .ttl em { font-style: italic; }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.4;
+      margin: 12px 0 32px;
+    }
+
+    /* ════════════════════════════
+       PAGE 1 — COVER  dark
+    ════════════════════════════ */
+    .pg-cover {
+      background: var(--dk-bg);
+      padding: 52px 68px 150px;
+      justify-content: space-between;
+    }
+
+    /* Logo — prominent, spans eyebrow width */
+    .logo-wrap { display: flex; }
+
+    .logo-svg {
+      width: 160px;
+      height: auto;
+      display: block;
+    }
+
+    /* Center block */
+    .cover-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--f-d);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      display: block;
+      margin-bottom: 18px;
+      opacity: 0.9;
+    }
+
+    .cover-title {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: clamp(4.5rem, 8.75vw, 8.5rem);
+      color: var(--dk-head);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+    }
+
+    .cover-title em { font-style: italic; color: var(--dk-accent); }
+
+    .cover-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--dk-accent);
+      opacity: 0.3;
+      margin: 18px 0;
+    }
+
+    .cover-sub {
+      font-family: var(--f-b);
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: var(--dk-body);
+      line-height: 1.7;
+      max-width: 440px;
+      opacity: 0.8;
+    }
+
+    .cover-genres {
+      margin-top: 14px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cover-genre {
+      font-family: var(--f-d);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      opacity: 0.7;
+    }
+
+    .cover-dot {
+      font-family: var(--f-d);
+      font-size: 0.58rem;
+      color: var(--dk-accent);
+      opacity: 0.35;
+    }
+
+    /* TOC on cover — vertical column list */
+    .cover-toc {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--dk-brd);
+    }
+
+    .cover-toc-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--dk-brd);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      opacity: 0.8;
+    }
+
+    .cover-toc-item:hover { opacity: 1; }
+    .cover-toc-item:hover .cover-toc-name { color: var(--dk-accent); }
+
+    .cover-toc-n {
+      font-family: var(--f-d);
+      font-size: 0.58rem;
+      color: var(--dk-accent);
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    .cover-toc-name {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: var(--dk-head);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    /* ════════════════════════════
+       PAGE 2 — QUOTE  light
+    ════════════════════════════ */
+    .pg-quote {
+      background: var(--bg);
+      padding: 68px 68px;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .quote-wrap { max-width: 580px; }
+
+    .quote-wrap blockquote {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--head);
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .quote-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.3;
+      margin: 28px 0;
+    }
+
+    .quote-wrap cite {
+      font-family: var(--f-d);
+      display: block;
+      font-size: 0.57rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-style: normal;
+      opacity: 0.65;
+    }
+
+    /* (old TOC styles removed — TOC now on cover) */
+
+    /* ════════════════════════════
+       PAGE 3 — ENSEMBLES  dark
+    ════════════════════════════ */
+    .pg-content {
+      padding: 56px 68px;
+      justify-content: center;
+    }
+
+    .pg-content.lt { background: var(--bg); }
+    .pg-content.dk { background: var(--dk-bg); }
+
+    .pg-content.lt .lbl  { color: var(--accent); }
+    .pg-content.lt .ttl  { color: var(--head); }
+    .pg-content.lt .ttl em { color: var(--accent); }
+    .pg-content.lt .rule { background: var(--accent); }
+
+    .pg-content.dk .lbl  { color: var(--dk-accent); }
+    .pg-content.dk .ttl  { color: var(--dk-head); }
+    .pg-content.dk .ttl em { color: var(--dk-accent); }
+    .pg-content.dk .rule { background: var(--dk-accent); }
+
+    .inner { max-width: 860px; width: 100%; }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--dk-brd);
+    }
+
+    .testimonial-text {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dk-head);
+      line-height: 1.8;
+      opacity: 0.82;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-attr {
+      font-family: var(--f-d);
+      font-size: 0.57rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      font-style: normal;
+      opacity: 0.65;
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--brd);
+      margin: 0;
+    }
+
+    .testimonial-spacer { flex: 1; }
+
+    .page-testimonial {
+      padding: 0;
+      max-width: 520px;
+    }
+
+    .page-testimonial .testimonial-text {
+      color: var(--head);
+      opacity: 0.82;
+    }
+
+    .page-testimonial .testimonial-attr {
+      color: var(--accent);
+    }
+
+    .test-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 680px;
+    }
+
+    .test-left { align-self: flex-start; }
+    .test-right { align-self: flex-end; }
+
+    .pg-content.lt .testimonial-text { color: var(--head); }
+    .pg-content.lt .testimonial-attr { color: var(--accent); }
+
+    @media (max-width: 860px) {
+      .testimonials { grid-template-columns: 1fr; gap: 20px; }
+      .test-left, .test-right { align-self: stretch; }
+    }
+
+    .section-intro {
+      font-family: var(--f-b);
+      font-size: 0.88rem;
+      line-height: 1.75;
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+
+    .pg-content.dk .section-intro { color: var(--dk-body); }
+    .pg-content.lt .section-intro { color: var(--body); }
+
+    /* ENSEMBLE CARDS */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .pkg-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--dk-brd);
+      border-radius: 2px;
+      padding: 26px 22px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .pkg-card:hover { border-color: var(--dk-accent); transform: translateY(-2px); }
+
+    .pkg-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pkg-eyebrow {
+      font-family: var(--f-d);
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      opacity: 0.8;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .pkg-price-wrap {
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    /* One line, one font, one color */
+    .pkg-hero {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 1.35rem;
+      color: var(--dk-head);
+      line-height: 1.1;
+    }
+
+    .pkg-card .rule { margin: 14px 0 10px; background: var(--dk-accent); }
+
+    .pkg-desc {
+      font-family: var(--f-b);
+      font-size: 0.8rem;
+      color: var(--dk-body);
+      margin-bottom: 18px;
+      line-height: 1.65;
+    }
+
+    .pkg-instruments {
+      list-style: none;
+      margin: 14px 0 20px;
+    }
+
+    .pkg-instruments li {
+      font-family: var(--f-b);
+      font-size: 0.78rem;
+      color: var(--dk-body);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--dk-brd);
+    }
+
+    .pkg-instruments li:last-child { border-bottom: none; }
+
+    .price-lbl {
+      font-family: var(--f-d);
+      font-size: 0.54rem;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .price-amt {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 1.55rem;
+      color: var(--dk-head);
+      display: block;
+      line-height: 1;
+    }
+
+    .price-add {
+      font-family: var(--f-b);
+      font-size: 0.76rem;
+      color: var(--dk-body);
+      display: block;
+      margin-top: 9px;
+      padding-top: 9px;
+      border-top: 1px solid var(--dk-brd);
+    }
+
+    /* ════════════════════════════
+       PAGE 4 — INCLUDES  light
+    ════════════════════════════ */
+    .detail-list { list-style: none; }
+
+    .detail-list li {
+      font-family: var(--f-b);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--brd);
+      font-size: 0.9rem;
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      color: var(--body);
+    }
+
+    .detail-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 9px;
+      opacity: 0.55;
+    }
+
+    /* ════════════════════════════
+       PAGE 5 — ADD-ONS  dark
+    ════════════════════════════ */
+    .addon {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 36px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--dk-brd);
+      align-items: center;
+    }
+
+    .addon-name {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--dk-head);
+    }
+
+    .addon-desc {
+      font-family: var(--f-b);
+      font-size: 0.82rem;
+      color: var(--dk-body);
+      margin-top: 3px;
+      grid-column: 1;
+    }
+
+    .addon-rate {
+      font-family: var(--f-d);
+      grid-column: 2;
+      grid-row: 1 / 3;
+      font-size: 0.9rem;
+      color: var(--dk-accent);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .inner-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .lt-addon { border-bottom-color: var(--brd); }
+    .lt-addon .addon-name { color: var(--head); }
+    .lt-addon .addon-desc { color: var(--body); }
+    .lt-addon .addon-rate { color: var(--accent); }
+
+    /* ════════════════════════════
+       PAGE 6 — PROCESS  light
+    ════════════════════════════ */
+    .step {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--brd);
+      align-items: baseline;
+    }
+
+    .step-n {
+      font-family: var(--f-d);
+      font-size: 0.62rem;
+      color: var(--accent);
+      opacity: 0.55;
+    }
+
+    .step p { font-family: var(--f-b); margin: 0; font-size: 0.9rem; color: var(--body); }
+    .step strong { color: var(--head); font-weight: 400; }
+
+    /* ════════════════════════════
+       PAGE 6 — REPERTOIRE  dark
+    ════════════════════════════ */
+    .rep-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .rep-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .rep-genre {
+      font-family: var(--f-d);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .rep-list {
+      list-style: none;
+    }
+
+    .rep-list li {
+      font-family: var(--f-b);
+      font-size: 0.78rem;
+      color: var(--dk-body);
+      padding: 4px 0;
+      line-height: 1.6;
+    }
+
+    .rep-original { color: var(--dk-head); }
+
+    .rep-og-tag {
+      font-family: var(--f-d);
+      font-size: 0.48rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      margin-left: 8px;
+      opacity: 0.8;
+    }
+
+    .pg-content.lt .rep-genre { color: var(--accent); }
+    .pg-content.lt .rep-list li { color: var(--body); }
+    .pg-content.lt .rep-original { color: var(--head); }
+    .pg-content.lt .rep-og-tag { color: var(--accent); }
+
+    .rep-note {
+      font-family: var(--f-b);
+      font-size: 0.78rem;
+      margin-top: 24px;
+      opacity: 0.7;
+      font-style: italic;
+    }
+
+    .pg-content.dk .rep-note { color: var(--dk-body); }
+    .pg-content.lt .rep-note { color: var(--body); }
+
+    .rep-listen {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--brd);
+    }
+
+    .pg-content.dk .rep-listen { border-top-color: var(--dk-brd); }
+
+    .rep-listen-lbl {
+      font-family: var(--f-d);
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .pg-content.dk .rep-listen-lbl { color: var(--dk-accent); }
+
+    .rep-listen-invite {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .pg-content.dk .rep-listen-invite { color: var(--dk-head); }
+    .pg-content.dk .rep-listen-invite em { font-style: italic; color: var(--dk-accent); }
+    .pg-content.lt .rep-listen-invite { color: var(--head); }
+    .pg-content.lt .rep-listen-invite em { font-style: italic; color: var(--accent); }
+
+    .rep-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    @media (max-width: 860px) {
+      .rep-grid, .rep-grid-4 { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ════════════════════════════
+       PAGE 7 — CTA  dark
+    ════════════════════════════ */
+    .pg-cta {
+      background: var(--dk-bg);
+      justify-content: center;
+      align-items: center;
+      padding: 56px 68px;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 440px; }
+    .cta-inner .lbl  { color: var(--dk-accent); }
+    .cta-inner .ttl  { color: var(--dk-head); }
+    .cta-inner .ttl em { color: var(--dk-accent); }
+    .cta-inner .rule { background: var(--dk-accent); margin: 12px auto 32px; }
+    .cta-inner p { font-family: var(--f-b); color: var(--dk-body); margin-bottom: 28px; font-size: 0.9rem; }
+
+    .btn {
+      font-family: var(--f-d);
+      display: inline-block;
+      padding: 11px 26px;
+      background: transparent;
+      color: var(--dk-head);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--dk-brd);
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn:hover { border-color: var(--dk-accent); color: var(--dk-accent); }
+
+    .btn-lt { color: var(--head); border-color: var(--brd); }
+    .btn-lt:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-cta {
+      color: var(--bg);
+      background: var(--accent);
+      border-color: var(--accent);
+      padding: 10px 28px;
+      font-size: 0.58rem;
+      display: inline-block;
+      width: auto;
+    }
+    .btn-cta:hover { background: var(--head); border-color: var(--head); color: var(--bg); }
+
+    /* ════════════════════════════
+       PAGE 8 — FOOTER  light
+    ════════════════════════════ */
+    .pg-footer {
+      background: var(--bg);
+      justify-content: center;
+      align-items: center;
+      padding: 56px 68px;
+      text-align: center;
+    }
+
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+
+    .footer-logo { height: 20px; width: auto; opacity: 0.5; }
+
+    .footer-rule { width: 28px; height: 1px; background: var(--accent); opacity: 0.3; }
+
+    .footer-inner p { font-family: var(--f-d); font-size: 0.74rem; color: var(--body); margin: 0; }
+    .footer-inner a { color: var(--accent); text-decoration: none; }
+    .footer-inner a:hover { text-decoration: underline; }
+
+    .footer-legal {
+      font-family: var(--f-d);
+      font-size: 0.55rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      opacity: 0.4;
+    }
+
+    /* LIVE SEPARATOR */
+    .live-separator {
+      background: var(--dk-bg);
+      min-height: 100vh;
+      padding: 68px 68px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid var(--dk-brd);
+      border-bottom: 1px solid var(--dk-brd);
+    }
+
+    .live-text {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--dk-head);
+      line-height: 1.8;
+      max-width: 520px;
+      opacity: 0.82;
+      margin-bottom: 28px;
+    }
+
+    .live-text em { color: var(--dk-accent); }
+
+    .live-venue {
+      font-family: var(--f-d);
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dk-accent);
+      opacity: 0.9;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 860px) {
+      .live-separator { padding: 48px 28px; }
+      .live-venue { font-size: 0.85rem; }
+    }
+
+    /* ORIGINALS */
+    .originals-list { margin-top: 20px; }
+
+    .original-song {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--brd);
+    }
+
+    .original-title {
+      font-family: var(--f-d);
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: var(--head);
+      display: block;
+    }
+
+    .original-meta {
+      font-family: var(--f-b);
+      font-size: 0.74rem;
+      color: var(--body);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* SCROLL HINT */
+    .scroll-hint {
+      position: fixed;
+      bottom: 26px;
+      right: 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      z-index: 100;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .scroll-hint-line {
+      width: 1px;
+      height: 26px;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-hint-lbl {
+      font-family: var(--f-d);
+      font-size: 0.46rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      writing-mode: vertical-rl;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+      50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
+    }
+
+    @media (max-width: 860px) {
+      .page { min-height: 100vh; }
+      .pg-cover, .pg-quote, .pg-content, .pg-cta, .pg-footer { padding: 36px 28px 64px; }
+      .pg-quote { padding: 36px 28px 64px; }
+      .pg-cover { padding: 36px 28px 80px; }
+      .cover-title { font-size: 3rem; }
+      .cover-genres { flex-direction: column; gap: 6px; }
+      .cover-genre { font-size: 0.52rem; }
+      .cover-dot { display: none; }
+      .cover-toc-name { font-size: 0.72rem; }
+      .pkg-grid { grid-template-columns: 1fr; }
+      .inner-split { grid-template-columns: 1fr; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-hint">
+    <span class="scroll-hint-lbl">Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+
+  <!-- ═══════════════════════
+       P1 — COVER  dark
+  ═══════════════════════ -->
+  <section class="page pg-cover" id="cover">
+
+    <!-- Logo top — colored for dark bg -->
+    <div class="logo-wrap">
+      <svg class="logo-svg" viewBox="37 120 305 145" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#C08E8E" d="M 90.460938 187.84375 C 94.402344 207.863281 94.980469 216.679688 95.300781 219.058594 C 106.109375 207.300781 102.5625 181.003906 90.460938 187.84375 Z M 88.246094 173.984375 C 92.300781 171.292969 103.472656 160.953125 109.164062 153.046875 C 125.445312 130.425781 80.632812 127.488281 88.246094 173.984375 Z M 73.347656 192.339844 C 73.671875 193.601562 74.109375 194.726562 74.007812 196.441406 C 73.910156 198.027344 71.0625 197.71875 70.710938 195.585938 C 70.253906 192.84375 66.484375 188.105469 64.207031 185.863281 C 61.796875 183.492188 57.292969 182.085938 54.199219 185.378906 C 40.652344 199.796875 71.878906 229.363281 90.824219 222.191406 C 89.824219 211.84375 88.546875 201.570312 86.554688 191.390625 C 85.945312 191.550781 80.628906 197.453125 82.597656 207.15625 C 82.757812 207.949219 82.816406 208.808594 82.207031 209.253906 C 76.546875 209.683594 73.207031 194.488281 84.792969 186.007812 C 85.589844 185.425781 85.566406 186.546875 84.332031 179.699219 C 80.050781 182.132812 74.609375 187.40625 73.347656 192.339844 Z M 95.546875 221.246094 C 96.726562 232.460938 97.429688 249.988281 86.738281 253.519531 C 80.613281 255.539062 74.976562 250.542969 76.394531 245.363281 C 78.128906 238.875 87.6875 242.136719 85.804688 248.605469 C 91.191406 244.070312 91.613281 231.144531 90.933594 224.109375 C 65.632812 230.605469 37.507812 200.441406 48.1875 184.617188 C 52.453125 178.292969 63.5 177.691406 71.769531 189.429688 C 72.210938 188.871094 74.617188 183.074219 83.757812 176.9375 C 72.921875 119.449219 121.75 127.652344 114.574219 149.488281 C 111.0625 160.164062 94.152344 173.464844 88.441406 176.960938 C 88.875 179.773438 89.207031 181.050781 89.667969 183.828125 C 91.070312 183.828125 95.742188 182.613281 100.707031 187.769531 C 104.289062 191.488281 104.773438 197.429688 104.132812 202.570312 C 102.777344 213.488281 98.382812 217.96875 95.546875 221.246094"/>
+        <g transform="matrix(1,0,0,1,109,172)" fill="#C08E8E" fill-opacity="1">
+          <g transform="translate(0.957315,39.705483)"><path d="M 1.59375 0 L 1.59375 -0.640625 C 2.351562 -0.878906 2.875 -1.378906 3.15625 -2.140625 C 3.4375 -2.898438 3.578125 -4.296875 3.578125 -6.328125 L 3.578125 -17.78125 C 3.578125 -18.9375 3.503906 -19.804688 3.359375 -20.390625 C 3.210938 -20.972656 3 -21.394531 2.71875 -21.65625 C 2.4375 -21.925781 2.0625 -22.160156 1.59375 -22.359375 L 1.59375 -22.90625 L 7.015625 -25.296875 L 7.46875 -24.953125 L 7.46875 -20.71875 C 8.957031 -21.914062 10.597656 -22.96875 12.390625 -23.875 C 14.191406 -24.789062 15.988281 -25.25 17.78125 -25.25 C 21.53125 -25.25 23.835938 -23.6875 24.703125 -20.5625 C 26.191406 -21.757812 27.859375 -22.835938 29.703125 -23.796875 C 31.546875 -24.765625 33.394531 -25.25 35.25 -25.25 C 37.675781 -25.25 39.503906 -24.578125 40.734375 -23.234375 C 41.960938 -21.890625 42.578125 -19.804688 42.578125 -16.984375 L 42.578125 -6.328125 C 42.578125 -4.296875 42.722656 -2.898438 43.015625 -2.140625 C 43.316406 -1.378906 43.832031 -0.878906 44.5625 -0.640625 L 44.5625 0 L 36.703125 0 L 36.703125 -0.640625 C 37.460938 -0.878906 37.984375 -1.378906 38.265625 -2.140625 C 38.546875 -2.898438 38.6875 -4.296875 38.6875 -6.328125 L 38.6875 -16.078125 C 38.6875 -21.097656 36.796875 -23.609375 33.015625 -23.609375 C 31.585938 -23.609375 30.207031 -23.257812 28.875 -22.5625 C 27.550781 -21.863281 26.207031 -20.984375 24.84375 -19.921875 C 25.039062 -19.085938 25.140625 -18.109375 25.140625 -16.984375 L 25.140625 -6.328125 C 25.140625 -4.296875 25.28125 -2.898438 25.5625 -2.140625 C 25.851562 -1.378906 26.378906 -0.878906 27.140625 -0.640625 L 27.140625 0 L 19.265625 0 L 19.265625 -0.640625 C 20.035156 -0.878906 20.5625 -1.378906 20.84375 -2.140625 C 21.125 -2.898438 21.265625 -4.296875 21.265625 -6.328125 L 21.265625 -16.078125 C 21.265625 -21.097656 19.375 -23.609375 15.59375 -23.609375 C 14.15625 -23.609375 12.78125 -23.265625 11.46875 -22.578125 C 10.164062 -21.898438 8.832031 -21.046875 7.46875 -20.015625 L 7.46875 -6.328125 C 7.46875 -4.296875 7.609375 -2.898438 7.890625 -2.140625 C 8.171875 -1.378906 8.695312 -0.878906 9.46875 -0.640625 L 9.46875 0 Z"/></g>
+          <g transform="translate(46.555711,39.705483)"><path d="M 14.84375 0.5 C 13.25 0.5 11.675781 0.25 10.125 -0.25 C 8.582031 -0.75 7.179688 -1.507812 5.921875 -2.53125 C 4.660156 -3.5625 3.65625 -4.875 2.90625 -6.46875 C 2.164062 -8.0625 1.796875 -9.9375 1.796875 -12.09375 C 1.796875 -14.6875 2.410156 -16.96875 3.640625 -18.9375 C 4.867188 -20.914062 6.476562 -22.460938 8.46875 -23.578125 C 10.457031 -24.691406 12.582031 -25.25 14.84375 -25.25 C 16.40625 -25.25 17.945312 -25.003906 19.46875 -24.515625 C 21 -24.035156 22.394531 -23.28125 23.65625 -22.25 C 24.914062 -21.226562 25.925781 -19.921875 26.6875 -18.328125 C 27.457031 -16.734375 27.84375 -14.820312 27.84375 -12.59375 C 27.84375 -10.46875 27.453125 -8.59375 26.671875 -6.96875 C 25.890625 -5.34375 24.847656 -3.972656 23.546875 -2.859375 C 22.253906 -1.742188 20.84375 -0.90625 19.3125 -0.34375 C 17.789062 0.21875 16.300781 0.5 14.84375 0.5 Z M 5.625 -14.9375 C 5.625 -13.34375 5.875 -11.707031 6.375 -10.03125 C 6.875 -8.351562 7.585938 -6.800781 8.515625 -5.375 C 9.441406 -3.945312 10.5625 -2.785156 11.875 -1.890625 C 13.1875 -0.992188 14.671875 -0.546875 16.328125 -0.546875 C 18.117188 -0.546875 19.578125 -0.96875 20.703125 -1.8125 C 21.835938 -2.664062 22.675781 -3.785156 23.21875 -5.171875 C 23.769531 -6.566406 24.046875 -8.0625 24.046875 -9.65625 C 24.046875 -11.25 23.78125 -12.914062 23.25 -14.65625 C 22.71875 -16.40625 21.960938 -18.023438 20.984375 -19.515625 C 20.003906 -21.015625 18.832031 -22.210938 17.46875 -23.109375 C 16.113281 -24.003906 14.625 -24.398438 13 -24.296875 C 11.300781 -24.234375 9.90625 -23.769531 8.8125 -22.90625 C 7.71875 -22.039062 6.910156 -20.910156 6.390625 -19.515625 C 5.878906 -18.117188 5.625 -16.59375 5.625 -14.9375 Z"/></g>
+          <g transform="translate(76.523215,39.705483)"><path d="M 1.59375 0 L 1.59375 -0.640625 C 2.351562 -0.878906 2.875 -1.378906 3.15625 -2.140625 C 3.4375 -2.898438 3.578125 -4.296875 3.578125 -6.328125 L 3.578125 -17.78125 C 3.578125 -18.9375 3.507812 -19.804688 3.375 -20.390625 C 3.25 -20.972656 3.035156 -21.394531 2.734375 -21.65625 C 2.441406 -21.925781 2.0625 -22.160156 1.59375 -22.359375 L 1.59375 -22.90625 L 7.078125 -25.296875 L 7.46875 -24.953125 L 7.46875 -20.671875 C 8.925781 -21.828125 10.566406 -22.878906 12.390625 -23.828125 C 14.222656 -24.773438 16.101562 -25.25 18.03125 -25.25 C 20.488281 -25.25 22.410156 -24.535156 23.796875 -23.109375 C 25.191406 -21.679688 25.890625 -19.503906 25.890625 -16.578125 L 25.890625 -6.328125 C 25.890625 -4.296875 26.03125 -2.898438 26.3125 -2.140625 C 26.59375 -1.378906 27.117188 -0.878906 27.890625 -0.640625 L 27.890625 0 L 20.015625 0 L 20.015625 -0.640625 C 20.773438 -0.878906 21.296875 -1.378906 21.578125 -2.140625 C 21.867188 -2.898438 22.015625 -4.296875 22.015625 -6.328125 L 22.015625 -15.59375 C 22.015625 -18.175781 21.460938 -20.15625 20.359375 -21.53125 C 19.265625 -22.914062 17.625 -23.609375 15.4375 -23.609375 C 14.070312 -23.609375 12.71875 -23.25 11.375 -22.53125 C 10.03125 -21.820312 8.726562 -20.9375 7.46875 -19.875 L 7.46875 -6.328125 C 7.46875 -4.296875 7.613281 -2.898438 7.90625 -2.140625 C 8.207031 -1.378906 8.726562 -0.878906 9.46875 -0.640625 L 9.46875 0 Z"/></g>
+          <g transform="translate(105.594674,39.705483)"><path d="M 20.859375 0 C 19.867188 0 19.375 -0.5 19.375 -1.5 L 19.375 -10.453125 C 18.875 -8.429688 18.09375 -6.585938 17.03125 -4.921875 C 15.96875 -3.265625 14.726562 -1.945312 13.3125 -0.96875 C 11.90625 0.0078125 10.375 0.5 8.71875 0.5 C 7.488281 0.5 6.34375 0.25 5.28125 -0.25 C 4.21875 -0.75 3.363281 -1.476562 2.71875 -2.4375 C 2.070312 -3.40625 1.75 -4.601562 1.75 -6.03125 C 1.75 -7.75 2.257812 -9.15625 3.28125 -10.25 C 4.3125 -11.351562 5.679688 -12.253906 7.390625 -12.953125 C 9.097656 -13.648438 10.929688 -14.265625 12.890625 -14.796875 L 19.375 -16.53125 C 19.238281 -18.957031 18.570312 -20.742188 17.375 -21.890625 C 16.1875 -23.035156 14.53125 -23.609375 12.40625 -23.609375 C 10.90625 -23.609375 9.445312 -23.25 8.03125 -22.53125 C 6.625 -21.820312 5.289062 -20.703125 4.03125 -19.171875 L 3.578125 -19.5625 C 5.015625 -21.320312 6.632812 -22.707031 8.4375 -23.71875 C 10.25 -24.738281 12.234375 -25.25 14.390625 -25.25 C 17.410156 -25.25 19.632812 -24.457031 21.0625 -22.875 C 22.488281 -21.300781 23.203125 -19.101562 23.203125 -16.28125 L 23.203125 -6.328125 C 23.203125 -4.296875 23.34375 -2.898438 23.625 -2.140625 C 23.90625 -1.378906 24.429688 -0.878906 25.203125 -0.640625 L 25.203125 0 Z M 5.484375 -7.421875 C 5.484375 -5.796875 5.972656 -4.554688 6.953125 -3.703125 C 7.929688 -2.859375 9.132812 -2.4375 10.5625 -2.4375 C 11.882812 -2.4375 13.082031 -2.8125 14.15625 -3.5625 C 15.238281 -4.3125 16.160156 -5.28125 16.921875 -6.46875 C 17.691406 -7.664062 18.289062 -8.960938 18.71875 -10.359375 C 19.15625 -11.753906 19.375 -13.097656 19.375 -14.390625 L 19.375 -15.890625 L 13.09375 -14.1875 C 11.863281 -13.851562 10.660156 -13.410156 9.484375 -12.859375 C 8.304688 -12.316406 7.34375 -11.613281 6.59375 -10.75 C 5.851562 -9.894531 5.484375 -8.785156 5.484375 -7.421875 Z"/></g>
+          <g transform="translate(131.978029,39.705483)"><path d="M 1.59375 0 L 1.59375 -0.640625 C 2.351562 -0.878906 2.875 -1.378906 3.15625 -2.140625 C 3.4375 -2.898438 3.578125 -4.296875 3.578125 -6.328125 L 3.578125 -17.78125 C 3.578125 -18.9375 3.503906 -19.804688 3.359375 -20.390625 C 3.210938 -20.972656 3 -21.394531 2.71875 -21.65625 C 2.4375 -21.925781 2.0625 -22.160156 1.59375 -22.359375 L 1.59375 -22.90625 L 7.015625 -25.296875 L 7.46875 -24.953125 L 7.46875 -20.71875 C 8.957031 -21.914062 10.597656 -22.96875 12.390625 -23.875 C 14.191406 -24.789062 15.988281 -25.25 17.78125 -25.25 C 21.53125 -25.25 23.835938 -23.6875 24.703125 -20.5625 C 26.191406 -21.757812 27.859375 -22.835938 29.703125 -23.796875 C 31.546875 -24.765625 33.394531 -25.25 35.25 -25.25 C 37.675781 -25.25 39.503906 -24.578125 40.734375 -23.234375 C 41.960938 -21.890625 42.578125 -19.804688 42.578125 -16.984375 L 42.578125 -6.328125 C 42.578125 -4.296875 42.722656 -2.898438 43.015625 -2.140625 C 43.316406 -1.378906 43.832031 -0.878906 44.5625 -0.640625 L 44.5625 0 L 36.703125 0 L 36.703125 -0.640625 C 37.460938 -0.878906 37.984375 -1.378906 38.265625 -2.140625 C 38.546875 -2.898438 38.6875 -4.296875 38.6875 -6.328125 L 38.6875 -16.078125 C 38.6875 -21.097656 36.796875 -23.609375 33.015625 -23.609375 C 31.585938 -23.609375 30.207031 -23.257812 28.875 -22.5625 C 27.550781 -21.863281 26.207031 -20.984375 24.84375 -19.921875 C 25.039062 -19.085938 25.140625 -18.109375 25.140625 -16.984375 L 25.140625 -6.328125 C 25.140625 -4.296875 25.28125 -2.898438 25.5625 -2.140625 C 25.851562 -1.378906 26.378906 -0.878906 27.140625 -0.640625 L 27.140625 0 L 19.265625 0 L 19.265625 -0.640625 C 20.035156 -0.878906 20.5625 -1.378906 20.84375 -2.140625 C 21.125 -2.898438 21.265625 -4.296875 21.265625 -6.328125 L 21.265625 -16.078125 C 21.265625 -21.097656 19.375 -23.609375 15.59375 -23.609375 C 14.15625 -23.609375 12.78125 -23.265625 11.46875 -22.578125 C 10.164062 -21.898438 8.832031 -21.046875 7.46875 -20.015625 L 7.46875 -6.328125 C 7.46875 -4.296875 7.609375 -2.898438 7.890625 -2.140625 C 8.171875 -1.378906 8.695312 -0.878906 9.46875 -0.640625 L 9.46875 0 Z"/></g>
+          <g transform="translate(177.576426,39.705483)"><path d="M 14.84375 0.5 C 13.25 0.5 11.675781 0.25 10.125 -0.25 C 8.582031 -0.75 7.179688 -1.507812 5.921875 -2.53125 C 4.660156 -3.5625 3.65625 -4.875 2.90625 -6.46875 C 2.164062 -8.0625 1.796875 -9.9375 1.796875 -12.09375 C 1.796875 -14.6875 2.410156 -16.96875 3.640625 -18.9375 C 4.867188 -20.914062 6.476562 -22.460938 8.46875 -23.578125 C 10.457031 -24.691406 12.582031 -25.25 14.84375 -25.25 C 16.40625 -25.25 17.945312 -25.003906 19.46875 -24.515625 C 21 -24.035156 22.394531 -23.28125 23.65625 -22.25 C 24.914062 -21.226562 25.925781 -19.921875 26.6875 -18.328125 C 27.457031 -16.734375 27.84375 -14.820312 27.84375 -12.59375 C 27.84375 -10.46875 27.453125 -8.59375 26.671875 -6.96875 C 25.890625 -5.34375 24.847656 -3.972656 23.546875 -2.859375 C 22.253906 -1.742188 20.84375 -0.90625 19.3125 -0.34375 C 17.789062 0.21875 16.300781 0.5 14.84375 0.5 Z M 5.625 -14.9375 C 5.625 -13.34375 5.875 -11.707031 6.375 -10.03125 C 6.875 -8.351562 7.585938 -6.800781 8.515625 -5.375 C 9.441406 -3.945312 10.5625 -2.785156 11.875 -1.890625 C 13.1875 -0.992188 14.671875 -0.546875 16.328125 -0.546875 C 18.117188 -0.546875 19.578125 -0.96875 20.703125 -1.8125 C 21.835938 -2.664062 22.675781 -3.785156 23.21875 -5.171875 C 23.769531 -6.566406 24.046875 -8.0625 24.046875 -9.65625 C 24.046875 -11.25 23.78125 -12.914062 23.25 -14.65625 C 22.71875 -16.40625 21.960938 -18.023438 20.984375 -19.515625 C 20.003906 -21.015625 18.832031 -22.210938 17.46875 -23.109375 C 16.113281 -24.003906 14.625 -24.398438 13 -24.296875 C 11.300781 -24.234375 9.90625 -23.769531 8.8125 -22.90625 C 7.71875 -22.039062 6.910156 -20.910156 6.390625 -19.515625 C 5.878906 -18.117188 5.625 -16.59375 5.625 -14.9375 Z"/></g>
+          <g transform="translate(207.54393,39.705483)"><path d="M 1.59375 0 L 1.59375 -0.640625 C 2.351562 -0.878906 2.875 -1.378906 3.15625 -2.140625 C 3.4375 -2.898438 3.578125 -4.296875 3.578125 -6.328125 L 3.578125 -17.78125 C 3.578125 -18.9375 3.503906 -19.804688 3.359375 -20.390625 C 3.210938 -20.972656 3 -21.394531 2.71875 -21.65625 C 2.4375 -21.925781 2.0625 -22.160156 1.59375 -22.359375 L 1.59375 -22.90625 L 7.015625 -25.296875 L 7.46875 -24.953125 L 7.46875 -18.71875 C 7.863281 -19.6875 8.382812 -20.582031 9.03125 -21.40625 C 9.6875 -22.238281 10.378906 -22.921875 11.109375 -23.453125 C 11.867188 -24.015625 12.703125 -24.453125 13.609375 -24.765625 C 14.523438 -25.085938 15.582031 -25.25 16.78125 -25.25 C 17.78125 -25.25 18.566406 -25.128906 19.140625 -24.890625 C 19.722656 -24.660156 20.015625 -24.332031 20.015625 -23.90625 C 20.015625 -23.375 19.753906 -22.765625 19.234375 -22.078125 C 18.722656 -21.398438 18.019531 -21.0625 17.125 -21.0625 C 16.46875 -21.0625 15.628906 -21.1875 14.609375 -21.4375 C 13.597656 -21.6875 12.363281 -22.023438 10.90625 -22.453125 C 10.4375 -22.117188 9.945312 -21.613281 9.4375 -20.9375 C 8.925781 -20.257812 8.492188 -19.503906 8.140625 -18.671875 C 7.796875 -17.835938 7.585938 -17.023438 7.515625 -16.234375 L 7.46875 -16.234375 L 7.46875 -6.328125 C 7.46875 -4.296875 7.609375 -2.898438 7.890625 -2.140625 C 8.171875 -1.378906 8.695312 -0.878906 9.46875 -0.640625 L 9.46875 0 Z"/></g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Center -->
+    <div class="cover-mid">
+      <span class="cover-eyebrow">Live Music Offering</span>
+      <h1 class="cover-title">Music for<br>the <em>Soul.</em></h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">Live acoustic Latin music.</p>
+      <div class="cover-genres">
+        <span class="cover-genre">Boleros</span>
+        <span class="cover-dot">·</span>
+        <span class="cover-genre">Son Cubano</span>
+        <span class="cover-dot">·</span>
+        <span class="cover-genre">Cha Cha Chá</span>
+        <span class="cover-dot">·</span>
+        <span class="cover-genre">Latin Jazz</span>
+      </div>
+    </div>
+
+    <!-- Bottom — TOC -->
+    <ul class="cover-toc">
+      <li class="cover-toc-item" onclick="document.getElementById('ensembles').scrollIntoView({behavior:'smooth'})">
+        <span class="cover-toc-n">01</span>
+        <span class="cover-toc-name">Ensembles</span>
+      </li>
+      <li class="cover-toc-item" onclick="document.getElementById('includes').scrollIntoView({behavior:'smooth'})">
+        <span class="cover-toc-n">02</span>
+        <span class="cover-toc-name">What's Included</span>
+      </li>
+      <li class="cover-toc-item" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">
+        <span class="cover-toc-n">03</span>
+        <span class="cover-toc-name">How It Works</span>
+      </li>
+      <li class="cover-toc-item" onclick="document.getElementById('repertoire').scrollIntoView({behavior:'smooth'})">
+        <span class="cover-toc-n">04</span>
+        <span class="cover-toc-name">The Music</span>
+      </li>
+      <li class="cover-toc-item" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <span class="cover-toc-n">05</span>
+        <span class="cover-toc-name">Get in Touch</span>
+      </li>
+    </ul>
+
+  </section>
+
+
+  <!-- ═══════════════════════
+       P2 — QUOTE  light
+  ═══════════════════════ -->
+  <section class="page pg-quote" id="quote">
+    <div class="quote-wrap">
+      <blockquote>
+        "Live music is one of the last truly human experiences we have left.
+        In a world where so much has been automated, a real voice, real hands on real instruments —
+        that presence in a room — is irreplaceable. We are at a crossroads in how we connect,
+        and I believe music is one of the bridges that still holds."
+      </blockquote>
+      <div class="quote-rule"></div>
+      <cite>— Monica Ramos, founder &amp; lead vocalist, Monamor</cite>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════
+       P3 — ENSEMBLES  dark
+  ═══════════════════════ -->
+  <section class="page pg-content lt" id="includes">
+    <div class="inner" style="flex:1; display:flex; flex-direction:column;">
+      <span class="lbl">02 — What's Included</span>
+      <h2 class="ttl">Every Booking<br><em>Includes.</em></h2>
+      <div class="rule"></div>
+      <ul class="detail-list">
+        <li>Seasoned professional musicians with 25+ years of combined experience</li>
+        <li>A curated repertoire of Latin classics — boleros, son cubano, cha cha chá, influenced by Latin jazz</li>
+        <li>Early arrival for setup and soundcheck — no surprises on your event day</li>
+        <li>Pre-event coordination tailored to your timeline and program</li>
+        <li>Up to one song request per event, learned and rehearsed in advance</li>
+        <li>Travel to any venue within 30 miles of Seattle. Events beyond 30 miles quoted individually.</li>
+      </ul>
+
+      <div class="testimonial-spacer"></div>
+      <div class="page-testimonial">
+        <p class="testimonial-text">"They set a warm, captivating mood from the moment our guests arrived, and left everyone wanting more."</p>
+        <span class="testimonial-attr">Beth G. · Corporate Function · Bellevue</span>
+      </div>
+      <div class="testimonial-spacer"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════
+       P5 — HOW IT WORKS  light
+  ═══════════════════════ -->
+  <section class="page pg-content lt" id="process">
+    <div class="inner" style="flex:1; display:flex; flex-direction:column;">
+      <span class="lbl">03 — How It Works</span>
+      <h2 class="ttl">From Inquiry<br><em>to Encore.</em></h2>
+      <div class="rule"></div>
+      <div class="step">
+        <span class="step-n">01</span>
+        <p><strong>Reach out.</strong> Tell us about your event — date, venue, guest count, and what you have in mind.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">02</span>
+        <p><strong>We talk.</strong> A quick call to go over the details — timeline, sound, any special requests.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">03</span>
+        <p><strong>Reserve your date.</strong> A deposit holds your booking. Balance due before the event.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">04</span>
+        <p><strong>We show up.</strong> Setup, soundcheck, performance — all handled.</p>
+      </div>
+
+      <div class="testimonial-spacer"></div>
+      <div class="page-testimonial">
+        <p class="testimonial-text">"Our non-profit has never had a better experience with any other musical group. Beautiful, melodic, danceable — and played at a perfect volume."</p>
+        <span class="testimonial-attr">Joseph S. · Fundraiser · Seattle</span>
+      </div>
+      <div class="testimonial-spacer"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════
+       P6 — REPERTOIRE  dark
+  ═══════════════════════ -->
+  <section class="page pg-content dk" id="repertoire">
+    <div class="inner">
+      <span class="lbl">04 — The Music</span>
+      <h2 class="ttl">What We<br><em>Play.</em></h2>
+      <div class="rule"></div>
+      <p class="section-intro">These songs have been sung for decades — some for almost a century. They carry stories, histories, entire worlds. We play them because we believe they deserve to be heard again, live, the way they were meant to be. Not as nostalgia, but as living music.</p>
+
+      <div class="rep-grid rep-grid-4">
+        <div class="rep-col">
+          <span class="rep-genre">Boleros</span>
+          <ul class="rep-list">
+            <li>Bésame Mucho</li>
+            <li>Sabor a Mí</li>
+            <li>Quizás Quizás</li>
+            <li>Dos Gardenias</li>
+            <li>Como Fue</li>
+            <li>Soy lo Prohibido</li>
+            <li>Algo Contigo</li>
+            <li>Tuyo</li>
+            <li>Soledad y el Mar</li>
+            <li>20 Años</li>
+          </ul>
+        </div>
+        <div class="rep-col">
+          <span class="rep-genre">Son &amp; Son Bolero</span>
+          <ul class="rep-list">
+            <li>Lágrimas Negras</li>
+            <li>El Carretero</li>
+            <li>Guantanamera</li>
+            <li>El Manisero</li>
+            <li>Moliendo Café</li>
+            <li>Historia de un Amor</li>
+            <li>No Me Llores Más</li>
+            <li>Usted Abusó</li>
+          </ul>
+        </div>
+        <div class="rep-col">
+          <span class="rep-genre">Cha Cha Chá &amp; More</span>
+          <ul class="rep-list">
+            <li>Piel Canela</li>
+            <li>El Bodeguero</li>
+            <li>La Bikina</li>
+            <li>Odiame</li>
+            <li>Luz de Luna</li>
+            <li>Tú Sí Sabes Quererme</li>
+          </ul>
+        </div>
+        <div class="rep-col">
+          <span class="rep-genre">Originals</span>
+          <ul class="rep-list">
+            <li class="rep-original">El Feriado Solo</li>
+            <li class="rep-original">Mi Lluvia Tu Sol</li>
+            <li class="rep-original">Peca y Empata</li>
+            <li class="rep-original">Cha Cha Chá pa la Lluvia</li>
+            <li class="rep-original">No Más Fútbol</li>
+            <li class="rep-original">El Gaucho</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="rep-note">Full repertoire available on request.</p>
+
+      <div class="rep-listen">
+        <p class="rep-listen-invite">We've been writing and releasing original music — boleros, cha cha chá, cumbia — in anticipation of our debut album. These songs carry the same warmth and rhythm as the classics we grew up with, but they're ours.</p>
+        <div class="rep-links" style="margin-top:16px;">
+          <a href="https://linktr.ee/monamormusic" class="btn" target="_blank">Listen on All Platforms</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════
+       SEPARATOR — SEE US LIVE  dark
+  ═══════════════════════ -->
+  <div class="live-separator" id="live">
+    <p class="live-text">Don't take our word for it. Put on your headphones, make yourself a coffee, and take five minutes. This is Monamor performing <em>Dos Gardenias</em> live at The Royal Room in Seattle.</p>
+    <span class="live-venue">Monamor Live at The Royal Room</span>
+    <a href="https://youtu.be/QyoH7JaiT50?si=QpGivB9lD_f8KTkD" class="btn" target="_blank">Watch on YouTube</a>
+  </div>
+
+  <!-- ═══════════════════════
+       P8 — CTA  light
+  ═══════════════════════ -->
+  <section class="page pg-content lt" id="contact">
+    <div class="inner" style="flex:1; display:flex; flex-direction:column;">
+      <span class="lbl">05 — Get in Touch</span>
+      <h2 class="ttl">Let's<br><em>Talk.</em></h2>
+      <div class="rule"></div>
+      <p class="section-intro">We'll get back to you shortly. We look forward to speaking with you.</p>
+      <a href="mailto:monica@monamormusic.com" class="btn btn-lt">Send an Inquiry</a>
+
+      <div class="testimonial-spacer"></div>
+      <div class="page-testimonial">
+        <p class="testimonial-text">"Super responsive and helpful. Definitely enhanced our Hispanic Heritage Month event."</p>
+        <span class="testimonial-attr">Courtney A. · Corporate Function · Seattle</span>
+      </div>
+      <div class="testimonial-spacer"></div>
+    </div>
+  </section>
+
+</body>
+</html>
