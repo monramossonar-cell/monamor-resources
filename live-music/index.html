@@ -1177,13 +1177,35 @@
   <!-- ═══════════════════════
        P8 — CTA  light
   ═══════════════════════ -->
-  <section class="page pg-content lt" id="contact">
+  <section class="page pg-content dk" id="contact">
     <div class="inner" style="flex:1; display:flex; flex-direction:column;">
       <span class="lbl">05 — Get in Touch</span>
       <h2 class="ttl">Let's<br><em>Talk.</em></h2>
       <div class="rule"></div>
-      <p class="section-intro">We'll get back to you shortly. We look forward to speaking with you.</p>
-      <a href="mailto:monica@monamormusic.com" class="btn btn-lt">Send an Inquiry</a>
+
+      <form name="live-music-contact" netlify hidden>
+        <input name="first-name"><input name="last-name">
+        <input type="email" name="email"><input name="message">
+        <input name="bot-field">
+      </form>
+
+      <form name="live-music-contact" method="POST" data-netlify="true"
+            netlify-honeypot="bot-field" action="/live-music/thank-you/"
+            style="width:100%;max-width:480px;">
+        <input type="hidden" name="form-name" value="live-music-contact">
+        <p style="display:none;"><label>Don't fill: <input name="bot-field"></label></p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <input name="first-name" placeholder="First name" required
+            style="padding:10px 12px;border:1px solid var(--dk-brd);background:rgba(255,255,255,0.05);font-family:var(--f-b);font-size:0.88rem;color:var(--dk-head);outline:none;-webkit-appearance:none;">
+          <input name="last-name" placeholder="Last name" required
+            style="padding:10px 12px;border:1px solid var(--dk-brd);background:rgba(255,255,255,0.05);font-family:var(--f-b);font-size:0.88rem;color:var(--dk-head);outline:none;-webkit-appearance:none;">
+        </div>
+        <input type="email" name="email" placeholder="Email address" required
+          style="display:block;width:100%;padding:10px 12px;margin-bottom:10px;border:1px solid var(--dk-brd);background:rgba(255,255,255,0.05);font-family:var(--f-b);font-size:0.88rem;color:var(--dk-head);outline:none;-webkit-appearance:none;">
+        <textarea name="message" placeholder="Tell us about your event — date, venue, what you have in mind..." required
+          style="display:block;width:100%;padding:10px 12px;margin-bottom:16px;border:1px solid var(--dk-brd);background:rgba(255,255,255,0.05);font-family:var(--f-b);font-size:0.88rem;color:var(--dk-head);outline:none;resize:vertical;min-height:90px;"></textarea>
+        <button type="submit" style="padding:13px 32px;background:#FFFFFF;color:#3B2D30;font-family:'Optima',Georgia,serif;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;border:none;cursor:pointer;">Send Message →</button>
+      </form>
 
       <div class="testimonial-spacer"></div>
       <div class="page-testimonial">
