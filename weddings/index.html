@@ -16,9 +16,9 @@
       --card:      #F0EAE7;
       --brd:       #C8BBB5;
       --head:      #3B2D30;
-      --body:      #5E4E4A;
+      --body:      #3B2D30;
       --accent:    #9E6B6B;
-      --dim:       #A89994;
+      --dim:        #6B5C57;
       --dk-bg:     #3B2D30;
       --dk-brd:    #5E4E51;
       --dk-head:   #EBE4E0;
@@ -73,7 +73,7 @@
       width: 40px;
       height: 1px;
       background: var(--accent);
-      opacity: 0.4;
+      opacity: 0.8;
       margin: 12px 0 32px;
     }
 
@@ -123,7 +123,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--dim);
-      opacity: 0.6;
+      opacity: 1;
     }
 
     /* P2 — QUOTE + TOC light */
@@ -154,7 +154,7 @@
       text-transform: uppercase;
       color: var(--accent);
       font-style: normal;
-      opacity: 0.65;
+      opacity: 1;
     }
 
     .toc-rule { width: 36px; height: 1px; background: var(--accent); opacity: 0.3; margin: 36px 0; }
@@ -168,7 +168,7 @@
       padding: 9px 0;
       border-bottom: 1px solid var(--brd);
       cursor: pointer;
-      opacity: 0.6;
+      opacity: 1;
       transition: opacity 0.2s;
     }
 
@@ -178,7 +178,7 @@
 
     .toc-n { font-family: var(--f-d); font-size: 0.5rem; color: var(--accent); letter-spacing: 0.08em; }
     .toc-name { font-family: var(--f-d); font-weight: 300; font-size: 0.76rem; color: var(--head); transition: color 0.2s; }
-    .toc-hint { font-family: var(--f-d); font-size: 0.5rem; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; }
+    .toc-hint { font-family: var(--f-d); font-size: 0.5rem; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; opacity: 1; }
 
     /* CONTENT PAGES */
     .pg-content { padding: 56px 68px; justify-content: center; }
@@ -375,7 +375,7 @@
       transition: border-color .2s;
       appearance: none;
     }
-    .field input::placeholder { color: var(--dk-body); opacity: 0.5; }
+    .field input::placeholder { color: var(--dk-body); opacity: 0.9; }
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--dk-accent); }
     .field textarea { resize: none; height: 70px; }
     .field select {
@@ -417,12 +417,12 @@
     }
 
     .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-    .footer-logo { height: 20px; width: auto; opacity: 0.5; }
+    .footer-logo { height: 20px; width: auto; opacity: 0.9; }
     .footer-rule { width: 28px; height: 1px; background: var(--accent); opacity: 0.3; }
     .footer-inner p { font-family: var(--f-d); font-size: 0.74rem; color: var(--body); margin: 0; }
     .footer-inner a { color: var(--accent); text-decoration: none; }
     .footer-inner a:hover { text-decoration: underline; }
-    .footer-legal { font-family: var(--f-d); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); opacity: 0.4; }
+    .footer-legal { font-family: var(--f-d); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); opacity: 0.8; }
 
     /* SCROLL HINT */
     .scroll-hint {
